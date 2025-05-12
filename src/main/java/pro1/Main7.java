@@ -22,7 +22,7 @@ public class Main7 {
             for (Specialization specialization : specializationList.items) {
                 if(specialization.deadlinePrihlaska != null && specialization.deadlinePrihlaska.value != null){
                     try{
-                        LocalDate date = LocalDate.parse(specialization.deadlinePrihlaska.value, DateTimeFormatter.ISO_LOCAL_DATE); //parsovaní hodnoty uzávěrky do LocalDate
+                        LocalDate date = LocalDate.parse(specialization.deadlinePrihlaska.value, outputFormatter); //parsovaní hodnoty uzávěrky do LocalDate
                         deadLines.add(date);
                     } catch (Exception e) {
                         System.err.println("Nepodařilo se naparsovat: " + specialization.deadlinePrihlaska.value);
@@ -37,5 +37,10 @@ public class Main7 {
         }else {
             return "";
         }
+    }
+
+
+    public static void main(String[] args) {
+        System.out.println(specializationDeadines(2025));
     }
 }
